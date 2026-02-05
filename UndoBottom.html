@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Undo Button</title>
+</head>
+
+<body>
+
+    <input type="text" id="textInput" placeholder="Type something">
+    <br><br>
+
+    <button onclick="undo()">Undo</button>
+
+    <script>
+        let history = [];
+        const input = document.getElementById("textInput");
+
+        input.addEventListener("input", () => {
+            history.push(input.value);
+        });
+
+        function undo() {
+            if (history.length > 1) {
+                history.pop(); // current value remove
+                input.value = history[history.length - 1];
+            }
+        }
+    </script>
+
+</body>
+
+</html>
